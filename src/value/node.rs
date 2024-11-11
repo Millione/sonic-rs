@@ -65,8 +65,8 @@ use crate::{
 /// to use `serde_json::Value`.
 #[repr(C)]
 pub struct Value {
-    pub(crate) meta: Meta,
-    pub(crate) data: Data,
+    pub meta: Meta,
+    pub data: Data,
 }
 
 #[rustfmt::skip]
@@ -102,7 +102,7 @@ pub struct Value {
 // NB: we will check the JSON length when parsing, if JSON is > 2GB, will return a error, so we will not check the limits when parsing or using dom.
 #[allow(clippy::box_collection)]
 #[repr(C)]
-pub(crate) union Data {
+pub union Data {
     pub(crate) uval: u64,
     pub(crate) ival: i64,
     pub(crate) fval: f64,
@@ -174,7 +174,7 @@ pub(crate) struct RawStrHeader {
 
 #[derive(Copy, Clone)]
 #[repr(C)]
-pub(crate) union Meta {
+pub union Meta {
     shared: NonNull<Shared>,
     raw: RawStr,
     typ: u64,

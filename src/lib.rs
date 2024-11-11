@@ -46,6 +46,8 @@ pub use crate::serde::{
     StreamDeserializer,
 };
 #[doc(inline)]
+pub use crate::value::node::{Data, Meta};
+#[doc(inline)]
 pub use crate::value::{
     from_value, to_value, Array, JsonContainerTrait, JsonType, JsonValueMutTrait, JsonValueTrait,
     Object, Value, ValueRef,
